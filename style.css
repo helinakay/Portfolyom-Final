@@ -1,0 +1,695 @@
+*{
+    margin:  0px;
+    padding: 0px;
+    align-items: center;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    margin: 0px 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width:1800px;
+    margin: 0 auto;
+}
+.container img {
+    width: 800px;
+    height: 70px;
+    float: left;
+    margin: 5px;
+    object-fit: cover;
+    margin-block: 0px;
+    margin-left: 200px ;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    padding: 0%;
+    transition: all 0.3s;
+}
+.text h1{
+    font-size: 70px;
+    text-align: inline;
+    float: left;
+    padding: 0%;
+    margin: 0%;
+    text-wrap: balance;
+    color: black;
+    transition: color 0.3s ease;
+
+
+
+}
+.text2 h1{
+    font-size: 50px;
+    text-align: inline;
+    float: left;
+    padding: 0%;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.text3 h1{
+    font-size: 70px;
+    text-align: inline;
+    float: left;
+    padding: 0%;
+    color: gray;
+}
+.efekt1 {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    left: 10%;
+
+    color: rgb(0, 0, 0);
+    opacity: 0;
+    transition: all 0.5s;
+    text-align: center;
+    z-index: 2;
+}
+
+.container a {
+    position: relative;
+    display: inline-block;
+}
+
+.container a:hover .efekt1 {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.container a:hover img {
+    filter:blur(3px);
+    transform: scale(1.03);
+    transition: all 0.3s;
+}
+
+.text h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    color: black;}
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode a {
+    color: #bb86fc;
+}
+
+body.dark-mode img {
+    filter: brightness(0.8);
+}
+
+#toggleTheme {
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    padding: 12px 24px;
+    background-color: #2d3436;
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+}
+
+#toggleTheme .fa-moon {
+    display: none;
+}
+
+#toggleTheme .fa-sun {
+    display: inline-block;
+}
+
+body.dark-mode #toggleTheme .fa-moon {
+    display: inline-block;
+}
+
+body.dark-mode #toggleTheme .fa-sun {
+    display: none;
+}
+
+.redirectButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    background-color: gray;
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.redirectButton i {
+    font-size: 14px;
+}
+
+#toggleTheme:hover, .redirectButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .text h1,
+body.dark-mode .text2 h1 {
+    color: white;
+}
+
+.anasayfa-banner {
+    display: flex;
+    flex-direction: column;
+    max-width: 1800px;
+    margin: 12% 10% 10% 17%;
+    padding: 0 15px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 0;
+}
+
+.anasayfa-banner img{
+    max-height: 70px;
+}
+
+/* Responsive tasarım için media query'ler */
+@media screen and (max-width: 1200px) {
+    body {
+        margin-top: 80px;
+        margin-left: 20px;
+    }
+
+    .container img {
+        max-width: 600px;
+    }
+
+    .efekt1 {
+        left: 300px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        margin-top: 100px;
+        margin-left: 10px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .container img {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .text h1 {
+        font-size: 40px;
+        text-align: center;
+        float: none;
+    }
+
+    .efekt1 {
+        left: 50%;
+        font-size: 0.9em;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        margin-top: 80px;
+    }
+
+    .text h1 {
+        font-size: 30px;
+    }
+
+    .efekt1 h1 {
+        font-size: 20px;
+    }
+
+    #toggleTheme,
+    .redirectButton {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+
+.footer {
+    margin-top: 100px;
+    background-color: #f8f9fa;
+    padding: 40px 0 20px 0;
+    width: 100%;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 30px;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section {
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    color: #2d3436;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    color: #636e72;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: #636e72;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #0984e3;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #dfe6e9;
+}
+
+.footer-bottom p {
+    color: #636e72;
+    font-size: 0.9rem;
+}
+
+/* Dark mode için footer stilleri */
+body.dark-mode .footer {
+    background-color: #2d2d2d;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .footer-section h3 {
+    color: #f8f9fa;
+}
+
+body.dark-mode .footer-section p,
+body.dark-mode .social-links a,
+body.dark-mode .footer-bottom p {
+    color: #b2bec3;
+}
+
+body.dark-mode .social-links a:hover {
+    color: #74b9ff;
+}
+
+body.dark-mode .footer-bottom {
+    border-top-color: #4d4d4d;
+}
+
+/* Responsive tasarım için */
+@media screen and (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-section {
+        min-width: auto;
+        width: 100%;
+    }
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #2d3436;
+}
+
+.navbar-nav .nav-link {
+    color: #2d3436;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0984e3;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 10px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Dark Mode Navbar */
+body.dark-mode .navbar {
+    background-color: rgba(45, 45, 45, 0.95);
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar-nav .nav-link {
+    color: #f8f9fa;
+}
+
+body.dark-mode .navbar-nav .nav-link:hover {
+    color: #74b9ff;
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* Responsive Navbar */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 15px;
+        margin-top: 10px;
+    }
+
+    body.dark-mode .navbar-collapse {
+        background-color: rgba(45, 45, 45, 0.95);
+    }
+}
+
+/* Projects Container Styles */
+.projects-container {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-section {
+    margin-bottom: 60px;
+    margin: 0 25%;
+}
+
+.project-section h2 {
+    font-size: 2rem;
+    color: #2d3436;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 165px;
+}
+
+.project-image:hover {
+    transform: translateY(-5px);
+}
+
+.project-image img {
+    width: 100%;
+    height: 165px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Dark Mode Styles for Projects */
+body.dark-mode .project-section h2 {
+    color: #f8f9fa;
+}
+
+body.dark-mode .project-image {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .projects-container {
+        padding: 30px 15px;
+        margin-top: 30px;
+    }
+
+    .project-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .project-section {
+        margin-bottom: 40px;
+    }
+
+    .project-image img {
+        height: 250px;
+    }
+
+    .project-section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects-container {
+        padding: 20px 10px;
+        margin-top: 20px;
+    }
+
+    .project-section {
+        margin-bottom: 30px;
+    }
+
+    .project-image img {
+        height: 200px;
+    }
+
+    .project-section h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Gallery Styles */
+.gallery-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 60%;
+    padding: 40px 20px;
+    margin-left: 20%;
+}
+
+.gallery-container h2 {
+    font-size: 2.5rem;
+    color: #2d3436;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1100;
+    padding: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    width: max-content;
+    border-radius: 0;
+}
+
+#closeModal {
+    position: fixed;
+    right: 35px;
+    top: 15px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Dark Mode Gallery Styles */
+body.dark-mode .gallery-container h2 {
+    color: #f8f9fa;
+}
+
+body.dark-mode .gallery-item {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Gallery Styles */
+@media (max-width: 991px) {
+    .gallery-container {
+        padding: 30px 15px;
+    }
+
+    .gallery-container h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-item img {
+        height: 250px;
+    }
+
+    .gallery-container h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery-container {
+        padding: 20px 10px;
+    }
+
+    .gallery-item img {
+        height: 200px;
+    }
+
+    .gallery-container h2 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+    }
+}
+
+.gallery-container .row .col-md-4{
+    padding: 0 6%;
+}
+
+#scrollToTop {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    padding: 12px 16px;
+    background-color: gray;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Circular shape */
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays above other elements */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    display: none; /* Initially hidden */
+}
+
+#scrollToTop:hover {
+    background-color: black;
+    transform: translateY(-2px);
+}
+
+body.dark-mode #scrollToTop:hover{
+    background-color: dimgray;
+}

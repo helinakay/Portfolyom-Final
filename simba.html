@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simba Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+        @media screen and (max-width: 480px) {
+            body {
+                margin-top: 50px;
+            }
+        }
+
+        .modal-content {
+            width: max-content;
+            border-radius: 0;
+        }
+
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .photo {
+            max-width: 100%;
+            max-height: 76vh;
+            background-color:transparent;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .photo:hover {
+            transform: scale(1.05);
+        }
+
+        .switch-button {
+            padding: 10px 20px;
+            background-color: gray;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .switch-button:hover {
+            background-color: #444;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        body.dark-mode .switch-button {
+            background-color: #444;
+        }
+
+        body.dark-mode .switch-button:hover {
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Helin Akay</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="eskizsu.html">Mimari Projeler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="eskizler2.html">Eskizler</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="fotolar3.html">Fotoğraflar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="simba.html">Simba</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">İletişim</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h3>Random Simba Generator</h3>
+    <div class="photo-container">
+        <img id="photo" class="photo" src="simba/IMG_0758.jpg" alt="Random Photo">
+        <button class="switch-button" onclick="switchPhoto()">Generate!</button>
+    </div>
+    <button id="toggleTheme" style="top:65px">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-moon"></i>
+        <span>Karanlık Mod</span>
+    </button>
+    <div id="imageModal" class="modal">
+        <span id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Large view of selected image">
+    </div>
+    <script src="modal.js"></script>
+    <script>
+        // List of photos
+        const photos = [
+            "simba/0f3f88cc-61f8-493e-a69b-76dfe46d6019.JPG",
+            "simba/4ba70974-55b5-47d3-973b-1cd29c01f2f3.JPG",
+            "simba/16dcc8d7-da82-4092-80a9-4488b60298a4.JPG",
+            "simba/35de6ad5-ca0c-4f40-89fb-ffdf34f2228c.JPG",
+            "simba/35ec7585-4eb6-4304-a888-3930fde4bf92.JPG",
+            "simba/047fc17c-59c0-4679-acff-16c7e0c283df.JPG",
+            "simba/73fe1f6f-cdcf-4c63-9d7e-1feae0078944.JPG",
+            "simba/225bdf1b-0299-46ec-9117-79255185df95.JPG",
+            "simba/473b4478-69db-4455-821a-71dd4c8fd0e5.JPG",
+            "simba/666f80e8-6adf-481a-b1a4-10f32a1d4162.JPG",
+            "simba/8361a031-5f8c-4b2e-b282-515fa4cc4039.JPG",
+            "simba/780905ab-eb92-4766-bab3-3b159d128352.JPG",
+            "simba/2289693b-66f7-4c83-90c9-922a8f3f793d.JPG",
+            "simba/FullSizeRender.jpg",
+            "simba/FullSizeRender 2.jpg",
+            "simba/FullSizeRender 3.jpg",
+            "simba/IMG_0757.jpg",
+            "simba/IMG_0758.jpg",
+            "simba/IMG_0975.jpg",
+            "simba/IMG_2015.jpg",
+            "simba/IMG_4942.jpg",
+            "simba/IMG_4987.jpg",
+            "simba/IMG_5088.jpg",
+            "simba/IMG_5186.jpg",
+            "simba/IMG_6564.jpg",
+            "simba/IMG_6816.jpg",
+            "simba/IMG_8866.jpg",
+        ];
+
+        // Function to switch the photo randomly
+        function switchPhoto() {
+            const photoElement = document.getElementById('photo');
+            const randomIndex = Math.floor(Math.random() * photos.length);
+            photoElement.src = photos[randomIndex];
+        }
+    </script>
+    <script src="darkmode.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
